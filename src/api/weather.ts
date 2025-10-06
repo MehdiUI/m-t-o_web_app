@@ -12,13 +12,15 @@ class WeatherAPI {
         return `${endpoint}?${searchParams.toString()}`;
 
    }
-   async fetchData <T> (url: string): Promise <T> {
-    const response = await fetch (url);
-    if (!response.ok) {
-        throw new Error (`Weather API ERROR: ${response.statusText}`);
-    }
+ async fetchData<T>(url: string): Promise<T> {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`Weather API ERROR: ${response.statusText}`);
+  }
+  return response.json(); 
+}
 
-   }
+   
     async getCurrentWeather({ lat, lon }: Coordinates) :Promise <WeatherData>{
         const  url = this.createUrl (`${API_CONFIG.BASE_URL}/weather`, 
             {lat:lat.toString(),
@@ -41,14 +43,17 @@ class WeatherAPI {
    }
 
    
-    async reverseGeocode({  lat, lon,}: Coordinates): Promise<GeocodingResponse[]> {
-    const url = this.createUrl(`${API_CONFIG.GEO}/reverse`, {
-      lat: lat.toString(),
-      lon: lon.toString(),
-      limit: "1",
-    });
-    return this.fetchData<GeocodingResponse[]>(url);
-  }
+ async reverseGeocode({ lat, lon }: Coordinates): Promise<GeocodingResponse[]> {
+  const url = this.createUrl(`${API_CONFIG.GEO}/reverse`, {
+    lat: lat.toString(),
+    lon: lon.toString(),
+    limit: "1",
+  });
+  
+  const data = await this.fetchData<GeocodingResponse>(url);
+  // Si l'API renvoie un objet unique, le mettre dans un tableau
+  return Array.isArray(data) ? data : [data];
+}
 
     async searchLocations(query: string): Promise<GeocodingResponse[]> {
     const url = this.createUrl(`${API_CONFIG.GEO}/direct`, {
