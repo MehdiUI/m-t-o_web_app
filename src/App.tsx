@@ -22,7 +22,7 @@ function App() {
   return (
     <>
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+      <BrowserRouter basename="/meteowebapp">
       <ThemeProvider defaultTheme="dark" >
         <Layout>
             <Routes>
