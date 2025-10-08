@@ -59,9 +59,11 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
           {nextDays.map((day) => (
             <div
               key={day.date}
-              className="grid grid-cols-3 items-center gap-4 rounded-lg border p-4"
+              // CORRECTION ICI : Layout adaptatif pour tous les écrans
+              className="grid grid-cols-1 md:grid-cols-3 items-center gap-4 rounded-lg border p-4"
             >
-              <div>
+              {/* Date et description */}
+              <div className="text-center md:text-left">
                 <p className="font-medium">
                   {format(new Date(day.date * 1000), "EEE, MMM d")}
                 </p>
@@ -70,6 +72,7 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
                 </p>
               </div>
 
+              {/* Températures min/max */}
               <div className="flex justify-center gap-4">
                 <span className="flex items-center text-blue-500">
                   <ArrowDown className="mr-1 h-4 w-4" />
@@ -81,15 +84,16 @@ export function WeatherForecast({ data }: WeatherForecastProps) {
                 </span>
               </div>
 
-               <div className="flex flex-col sm:flex-row justify-end gap-2 sm:gap-4">
-        <span className="flex items-center gap-1 justify-end sm:justify-start">
-          <Droplets className="h-4 w-4 text-blue-500" />
-          <span className="text-sm">{day.humidity}%</span>
-        </span>
-        <span className="flex items-center gap-1 justify-end sm:justify-start">
-          <Wind className="h-4 w-4 text-blue-500" />
-          <span className="text-sm">{day.wind}m/s</span>
-        </span>
+              {/* Humidité et vent - CORRECTION ICI */}
+              <div className="flex flex-col sm:flex-row justify-center md:justify-end gap-2 sm:gap-4">
+                <span className="flex items-center gap-1 justify-center sm:justify-start">
+                  <Droplets className="h-4 w-4 text-blue-500" />
+                  <span className="text-sm">{day.humidity}%</span>
+                </span>
+                <span className="flex items-center gap-1 justify-center sm:justify-start">
+                  <Wind className="h-4 w-4 text-blue-500" />
+                  <span className="text-sm">{day.wind}m/s</span>
+                </span>
               </div>
             </div>
           ))}
