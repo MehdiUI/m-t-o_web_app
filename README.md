@@ -1,73 +1,158 @@
-# React + TypeScript + Vite
+🌤️ Application Météo
+Une application météo moderne et élégante développée avec React et Vite, offrant une expérience utilisateur fluide et intuitive.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+✨ Fonctionnalités
+🌡️ Affichage des conditions météo actuelles
 
-Currently, two official plugins are available:
+📊 Graphiques météo interactifs avec Recharts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔍 Recherche par ville
 
-## React Compiler
+🌙 Mode sombre/clair avec Next Themes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+📱 Interface responsive et moderne
 
-## Expanding the ESLint configuration
+⚡ Performances optimisées avec Vite
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🎨 Design système avec Radix UI et Tailwind CSS
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🛠️ Technologies Utilisées
+Frontend
+React 19 - Bibliothèque UI moderne
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+TypeScript - Typage statique
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Vite - Build tool rapide
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Tailwind CSS - Framework CSS utilitaire
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Tailwind Merge & Animate - Styles avancés
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+UI Components
+Radix UI - Composants accessibles (Dialog, Tooltip, Scroll Area)
+
+Lucide React - Icônes
+
+Class Variance Authority - Gestion des variants de composants
+
+CMDK - Interface de commande
+
+State Management & Data
+TanStack Query - Gestion des données serveur
+
+Redux Toolkit - State management global
+
+Recharts - Graphiques et visualisations
+
+Utilitaires
+date-fns - Manipulation des dates
+
+clsx & tailwind-merge - Gestion des classes CSS
+
+Sonner - Notifications toast
+
+Développement
+ESLint - Linting du code
+
+TypeScript ESLint - Règles TypeScript
+
+PostCSS & Autoprefixer - Traitement CSS
+
+🚀 Installation
+bash
+# Cloner le repository
+git clone [url-du-repo]
+cd vite-project
+
+# Installer les dépendances
+npm install
+
+# Lancer en mode développement
+npm run dev
+
+# Build pour la production
+npm run build
+
+# Preview du build
+npm run preview
+📁 Structure du Projet
+text
+src/
+├── components/          # Composants React
+├── hooks/              # Custom hooks
+├── store/              # Configuration Redux
+├── utils/              # Utilitaires
+├── styles/             # Styles globaux
+└── types/              # Définitions TypeScript
+🎯 Scripts Disponibles
+npm run dev - Lance le serveur de développement
+
+npm run build - Build de production
+
+npm run preview - Preview du build
+
+npm run lint - Linting du code
+
+npm run type-check - Vérification TypeScript
+
+🌐 API Météo
+L'application utilise une API météo pour récupérer les données en temps réel. Assurez-vous d'avoir une clé API valide et de la configurer dans les variables d'environnement.
+
+🎨 Personnalisation
+Thèmes
+L'application supporte le mode sombre/clair via Next Themes. Les couleurs peuvent être personnalisées dans le fichier tailwind.config.js.
+
+Composants
+Les composants utilisent Class Variance Authority pour une gestion flexible des variants et états.
+
+📱 Responsive Design
+L'interface s'adapte parfaitement à tous les appareils :
+
+Mobile (< 768px)
+
+Tablet (768px - 1024px)
+
+Desktop (> 1024px)
+
+🔧 Configuration
+Variables d'Environnement
+Créez un fichier .env à la racine :
+
+env
+VITE_WEATHER_API_KEY=votre_cle_api
+VITE_WEATHER_API_URL=https://api.meteo.com
+Tailwind CSS
+La configuration Tailwind inclut :
+
+Animations personnalisées
+
+Couleurs du thème
+
+Breakpoints responsive
+
+🤝 Contribution
+Les contributions sont les bienvenues ! N'hésitez pas à :
+
+Fork le projet
+
+Créer une branche feature
+
+Commiter vos changements
+
+Push vers la branche
+
+Ouvrir une Pull Request
+
+📄 Licence
+Ce projet est sous licence MIT. Voir le fichier LICENSE pour plus de détails.
+
+🙏 Remerciements
+Vite pour l'outil de build incroyablement rapide
+
+Tailwind CSS pour le système de design
+
+Radix UI pour les composants accessibles
+
+Lucide pour les icônes
+
+Recharts pour les graphiques
