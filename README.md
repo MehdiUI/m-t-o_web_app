@@ -1,24 +1,3 @@
-🌤️ Application Météo
-Une application météo moderne développée avec React, TypeScript et Vite offrant une interface utilisateur élégante et responsive.
-
-✨ Fonctionnalités
-🌡️ Affichage des conditions météo actuelles
-
-📊 Graphiques météo interactifs
-
-🔍 Recherche par ville
-
-🌙 Mode sombre/clair
-
-📱 Design responsive
-
-⚡ Performances optimisées
-
-🚀 Démarrage Rapide
-bash
-# Installation
-npm install
-fais moi un truc plus beau
 🌤️ Weather App
 <div align="center">
 https://img.shields.io/badge/React-19.1.1-61DAFB?style=for-the-badge&logo=react
